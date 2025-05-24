@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>E-Commerce</title>
+
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo"><i class="fas fa-store"></i> E-Commerce</div>
+      <nav class="nav">
+        <a href="#" class="active"><i class="fas fa-home"></i> Home</a>
+        <a href="#"><i class="fas fa-laptop"></i> PC Essentials</a>
+        <a href="#"><i class="fas fa-keyboard"></i> Peripherals</a>
+      </nav>
+      <div class="header-icons">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="search" placeholder="Search products..." id="search-input" />
+        </div>
+        <div class="dropdown">
+          <button class="icon-button">
+            <i class="fas fa-user-circle"></i>
+          </button>
+          <div class="dropdown-content">
+            <div class="dropdown-header">
+              <i class="fas fa-user-circle profile-icon"></i>
+              <div class="user-info">
+                <span class="user-name">Guest User</span>
+                <span class="user-email">Login or Register</span>
+              </div>
+            </div>
+            <div class="dropdown-divider"></div>
+            <a href="#"><i class="fas fa-user"></i> Profile</a>
+            <a href="#"><i class="fas fa-box"></i> Orders</a>
+            <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="logout-link"
+              ><i class="fas fa-sign-out-alt"></i> Logout</a
+            >
+          </div>
+        </div>
+        <a href="#" class="cart-link">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <aside class="filters">
+        <h3>Filters<a href="#" class="clear-filters" id="clear-filters">Clear All</a></h3>
+        <div class="filter-tags" id="active-filters"></div>
+
+        <select class="sort-select" id="sort-select">
+          <option value="">Sort by Price...</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="name">Name: A-Z</option>
+        </select>
+
+        <div class="filter-section">
+          <h4>Categories</h4>
+          <label><input type="checkbox" name="category" value="PC Essentials"> PC Essentials</label>
+          <label><input type="checkbox" name="category" value="Peripherals"> Peripherals</label>
+        </div>
+
+        <div class="filter-section">
+          <h4>Product Types</h4>
+          <label><input type="checkbox" name="type" value="CPU"> CPU</label>
+          <label><input type="checkbox" name="type" value="Motherboard"> Motherboard</label>
+          <label><input type="checkbox" name="type" value="RAM"> RAM</label>
+          <label><input type="checkbox" name="type" value="GPU"> GPU</label>
+          <label><input type="checkbox" name="type" value="SSD"> SSD</label>
+          <label><input type="checkbox" name="type" value="HDD"> HDD</label>
+          <label><input type="checkbox" name="type" value="PSU"> PSU</label>
+          <label><input type="checkbox" name="type" value="Casing"> Casing</label>
+          <label><input type="checkbox" name="type" value="CPU Cooler"> CPU Cooler</label>
+          <label><input type="checkbox" name="type" value="Fan"> Fan</label>
+          <label><input type="checkbox" name="type" value="Mouse"> Mouse</label>
+          <label><input type="checkbox" name="type" value="Keyboard"> Keyboard</label>
+          <label><input type="checkbox" name="type" value="Monitor"> Monitor</label>
+        </div>
+
+        <div class="filter-section">
+          <h4>Brands</h4>
+          <label><input type="checkbox" name="brand" value="AMD"> AMD</label>
+          <label><input type="checkbox" name="brand" value="Intel"> Intel</label>
+          <label><input type="checkbox" name="brand" value="NVIDIA"> NVIDIA</label>
+          <label><input type="checkbox" name="brand" value="Corsair"> Corsair</label>
+          <label><input type="checkbox" name="brand" value="Logitech"> Logitech</label>
+          <label><input type="checkbox" name="brand" value="Dell"> Dell</label>
+          <label><input type="checkbox" name="brand" value="ASUS"> ASUS</label>
+          <label><input type="checkbox" name="brand" value="MSI"> MSI</label>
+        </div>
+      </aside>
+
+      <section class="products">
+        <div class="product-grid" id="product-grid">
+          <!-- Products will be dynamically loaded here -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-left">
+        <p><i class="fas fa-store"></i> E-Commerce</p>
+        <a href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+        <a href="#"><i class="fas fa-question-circle"></i> FAQs</a>
+        <a href="#"><i class="fas fa-info-circle"></i> About Us</a>
+        <div class="payment-icons">
+          <i class="fab fa-cc-visa"></i>
+          <i class="fab fa-cc-mastercard"></i>
+          <i class="fab fa-cc-amex"></i>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <p>Stay In Touch! Join our Newsletter.</p>
+        <form class="newsletter">
+          <input type="email" placeholder="Enter Email" required />
+          <button type="submit">
+            <i class="fas fa-paper-plane"></i> Subscribe
+          </button>
+        </form>
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
