@@ -22,31 +22,50 @@
           <input type="search" placeholder="Search products..." id="search-input" />
         </div>
         <div class="dropdown">
-          <button class="icon-button">
+          <button class="icon-button" id="loginButtonHeader">
             <i class="fas fa-user-circle"></i>
           </button>
           <div class="dropdown-content">
+          <div id="loggedInSection" class="hidden">
             <div class="dropdown-header">
               <i class="fas fa-user-circle profile-icon"></i>
               <div class="user-info">
-                <span class="user-name">Guest User</span>
-                <span class="user-email">Login or Register</span>
+                <span class="user-name"></span>
+                <span class="user-email"></span>
               </div>
             </div>
             <div class="dropdown-divider"></div>
-            <a href="#"><i class="fas fa-user"></i> Profile</a>
-            <a href="#"><i class="fas fa-box"></i> Orders</a>
-            <a href="#"><i class="fas fa-heart"></i> Wishlist</a>
-            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item" id="profileDropdownLink"
+              ><i class="fas fa-user"></i> Profile</a
+            >
+            <a href="#" class="dropdown-item" id="ordersDropdownLink"
+              ><i class="fas fa-clipboard-list"></i> Orders</a
+            >
             <a href="#" class="logout-link"
               ><i class="fas fa-sign-out-alt"></i> Logout</a
             >
           </div>
+            <button id="loginDropdownButton" class="dropdown-item">Login</button>
+            <button id="registerDropdownButton" class="dropdown-item">Register</button>
         </div>
-        <a href="#" class="cart-link">
-          <i class="fas fa-shopping-cart"></i>
-          <span class="cart-count" id="cart-count">0</span>
-        </a>
+        </div>
+        <div class="cart-container">
+          <a href="#" class="cart-link">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cart-count">0</span>
+          </a>
+          <div class="cart-dropdown" id="cart-dropdown">
+            <h4>Your Cart</h4>
+            <div id="cart-items-container">
+              <p>Your cart is empty.</p>
+            </div>
+            <div class="cart-summary">
+              <p>Total: <span id="cart-total-price">₱0.00</span></p>
+              <button class="cart-action-button" id="buy-now-button">Buy Now</button>
+              <button class="cart-action-button empty-cart-button" id="empty-cart-button">Empty Cart</button>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -58,7 +77,7 @@
   </section>
 
   <section class="feature">
-    <h2>Feature Message</h2>
+    <h2>LIMITED-TIME SALE</h2>
   </section>
 
   <section class="product-grid">
@@ -73,23 +92,60 @@
     <a href="#">FAQs</a>
     <a href="#">About Us</a>
     <div class="payment-icons">
-      <img src="visa.png" alt="Visa">
-      <img src="mastercard.png" alt="MasterCard">
-      <img src="amex.png" alt="AMEX">
+      <img src="IMAGES/visa.webp" alt="Visa">
+      <img src="IMAGES/mastercard.png" alt="MasterCard">
+      <img src="IMAGES/amex.png" alt="AMEX">
     </div>
   </div>
-
   <div class="footer-right">
-    <p>Stay In Touch! Join our Newsletter.</p>
-    <form class="newsletter">
-      <input type="email" placeholder="Enter Email">
-      <button type="submit">Subscribe</button>
-    </form>
+    <p>&copy; 2023 E-Commerce. All rights reserved.</p>
   </div>
 </footer>
 
+<div id="mainOverlay" class="main-overlay hidden"></div>
+
+<div id="loginModal" class="login-modal hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label for="login-username">Username:</label>
+      <input type="text" id="login-username" name="username" required />
+      <label for="login-password">Password:</label>
+      <input type="password" id="login-password" name="password" required />
+      <p class="error-message hidden" id="loginErrorMessage"></p>
+      <button type="submit">Login</button>
+    </form>
+    <p>Don't have an account? <a href="#" id="signupLink">Sign Up</a></p>
+  </div>
+</div>
+
+<div id="signupModal" class="signup-modal hidden">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <h2>Sign Up</h2>
+    <form id="signupForm">
+      <label for="signup-username">Username:</label>
+      <input type="text" id="signup-username" name="username" required />
+      <label for="signup-email">Email:</label>
+      <input type="email" id="signup-email" name="email" required />
+      <label for="signup-password">Password:</label>
+      <input type="password" id="signup-password" name="password" required />
+      <label for="signup-confirm-password">Confirm Password:</label>
+      <input
+        type="password"
+        id="signup-confirm-password"
+        name="confirm-password"
+        required
+      />
+      <p class="error-message hidden" id="signupErrorMessage"></p>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="#" id="loginLink">Login</a></p>
+  </div>
+</div>
+
+<script src="JS/common.js"></script>
 <script src="JS/index.js"></script>
-
-
 </body>
 </html>
