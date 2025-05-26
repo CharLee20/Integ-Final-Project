@@ -1,74 +1,20 @@
-  const products = [
-    {
-      "id": 0,
-      "title": "AMD Radeon RX 7700 XT",
-      "image": "IMAGES/GPU/RX 7700XT/7700xt_1.webp",
-      "attributes": "GPU",
-      "price": 39.99,
-      "discountPrice": 29.99
-    },
-    {
-      "id": 1,
-      "title": "Mechanical Keyboard",
-      "image": "images/keyboard.jpg",
-      "attributes": "Blue Switches, Backlit",
-      "price": 89.99,
-      "discountPrice": 89.99
-    },
-    {
-      "id": 2,
-      "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
-      "attributes": "24 inch, IPS",
-      "price": 129.99,
-      "discountPrice": 99.99
-    },
-    {
-      "id": 2,
-      "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
-      "attributes": "24 inch, IPS",
-      "price": 129.99,
-      "discountPrice": 99.99
-    },
-    {
-      "id": 2,
-      "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
-      "attributes": "24 inch, IPS",
-      "price": 129.99,
-      "discountPrice": 99.99
-    },
-    {
-      "id": 2,
-      "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
-      "attributes": "24 inch, IPS",
-      "price": 129.99,
-      "discountPrice": 99.99
-    },
-    {
-      "id": 2,
-      "title": "1080p Monitor",
-      "image": "images/monitor.jpg",
-      "attributes": "24 inch, IPS",
-      "price": 129.99,
-      "discountPrice": 99.99
-    }
-  ];
-
+document.addEventListener('DOMContentLoaded', () => {
   const grid = document.querySelector('.product-grid');
   grid.innerHTML = '';
 
-  products.forEach(product => {
+ 
+  const productsToDisplay = allProducts.slice(0, 10);  
+
+  productsToDisplay.forEach(product => {
     const card = document.createElement('a');
     card.className = 'product-card';
-    card.href = `HTMLS/product.html?id=${product.id}`;
+   
+    card.href = `HTMLS/product.html?id=${product.id}`; 
 
     const hasDiscount = product.discountPrice && product.discountPrice < product.price;
 
     card.innerHTML = `
-      <div class="product-image" style="background-image: url('${product.image}'); background-size: cover;"></div>
+      <div class="product-image" style="background-image: url('${product.indexImage}'); background-size: cover;"></div>
       <div class="product-title">${product.title}</div>
       <div class="product-attributes">${product.attributes}</div>
       <div class="product-price">
@@ -78,12 +24,46 @@
           : `₱${product.price.toFixed(2)}`
         }
       </div>
+      <button class="add-to-cart-button" onclick="event.preventDefault(); addToCart(${product.id})">Add to Cart</button>
     `;
 
     grid.appendChild(card);
   });
+});
 
-  function selectProduct(id) {
-    localStorage.setItem("selectedProductId", id);
-    window.location.href = "HTMLS/product.html";
-  }
+ /* Updated code for comma-separated values 
+ document.addEventListener('DOMContentLoaded', () => {
+  const grid = document.querySelector('.product-grid');
+  grid.innerHTML = '';
+
+  const productsToDisplay = allProducts.slice(0, 10);  
+
+  productsToDisplay.forEach(product => {
+    const card = document.createElement('a');
+    card.className = 'product-card';
+    card.href = `HTMLS/product.html?id=${product.id}`; 
+
+    const hasDiscount = product.discountPrice && product.discountPrice < product.price;
+
+    const formattedPrice = product.price.toLocaleString('en-PH', { minimumFractionDigits: 2 });
+    const formattedDiscount = product.discountPrice.toLocaleString('en-PH', { minimumFractionDigits: 2 });
+
+    card.innerHTML = `
+      <div class="product-image" style="background-image: url('${product.indexImage}'); background-size: cover;"></div>
+      <div class="product-title">${product.title}</div>
+      <div class="product-attributes">${product.attributes}</div>
+      <div class="product-price">
+        ${hasDiscount
+          ? `<span class="old-price">₱${formattedPrice}</span> 
+             <span class="discounted-price">₱${formattedDiscount}</span>`
+          : `₱${formattedPrice}`
+        }
+      </div>
+      <button class="add-to-cart-button" onclick="event.preventDefault(); addToCart(${product.id})">Add to Cart</button>
+    `;
+
+    grid.appendChild(card);
+  });
+});
+
+ */
